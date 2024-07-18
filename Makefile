@@ -1,4 +1,4 @@
-gitlab-op:
+gitlab-op: *.go go.mod go.sum
 	go build -o gitlab-op ./...
 
 .PHONY: install
