@@ -26,7 +26,7 @@ func CreateGroup(slug, name string) error {
 	}
 
 	dirSlug := path.Dir(slug)
-	if dirSlug != "" {
+	if dirSlug != "" && dirSlug != "." {
 		group, err := app.FindGroup(dirSlug)
 		if err != nil {
 			return err
