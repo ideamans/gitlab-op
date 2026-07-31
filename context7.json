@@ -1,0 +1,18 @@
+{
+  "$schema": "https://context7.com/schema/context7.json",
+  "projectTitle": "gitlab-op",
+  "description": "CLI for the repeated GitLab administration jobs: creating groups and projects, and inviting people to a group. Works against self-hosted GitLab and gitlab.com, with per-instance credential profiles.",
+  "folders": ["internal/llmdocs"],
+  "excludeFolders": ["node_modules", "dist", "vendor", "testdata"],
+  "rules": [
+    "Credentials live in an INI file at ~/.gitlab-op/credentials, one section per profile, each with url and token. There is no --profile flag.",
+    "The active profile comes from the GITLAB_OP_PROFILE environment variable and defaults to 'default'.",
+    "Every command writes to a live GitLab instance. There is no dry-run, no confirmation prompt and no undo.",
+    "invite sends real email, potentially to people without an account yet. Confirm the address list before running it.",
+    "Groups are addressed by slug — the URL path segment, not the display name. new-group takes the slug first and the display name second.",
+    "new-project takes the full group-slug/project-slug path, not just the project slug.",
+    "Create the group before creating a project in it or inviting anyone: both look it up by slug and fail if it is missing.",
+    "The token needs GitLab API scope; a read-only token cannot create groups or projects.",
+    "Release archives follow goreleaser's uname-compatible template: gitlab-op_Darwin_arm64.tar.gz, capitalised OS and x86_64 rather than amd64, with no version in the name."
+  ]
+}
