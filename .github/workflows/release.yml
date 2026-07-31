@@ -6,7 +6,24 @@ on:
       - "v*"
 
 jobs:
+  # PluginVersion feeds the Claude Code plugin manifest, which users install
+  # independently of the binary. A tag that disagrees with it would publish a
+  # plugin claiming a version the binary never had.
+  verify-version:
+    name: Verify the tag matches PluginVersion
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: |
+          tag="${GITHUB_REF_NAME#v}"
+          declared=$(grep -oE 'PluginVersion = "[^"]+"' main.go | cut -d'"' -f2)
+          if [ "$tag" != "$declared" ]; then
+            echo "::error::tag $GITHUB_REF_NAME disagrees with PluginVersion ($declared) in main.go"
+            exit 1
+          fi
+
   release:
+    needs: verify-version
     runs-on: ubuntu-latest
     permissions:
       contents: write
