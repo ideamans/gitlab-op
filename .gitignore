@@ -16,5 +16,7 @@
 # Dependency directories (remove the comment below to include it)
 # vendor/
 
-gitlab-op
+# The built binary, at the repository root only. Unanchored, this also
+# matched plugins/gitlab-op/, so the plugin could not be committed.
+/gitlab-op
 dist/

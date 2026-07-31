@@ -1,0 +1,13 @@
+{
+  "name": "gitlab-op",
+  "description": "Adds /gitlab-op-usage and /gitlab-op-install skills for provisioning GitLab: creating groups and projects and inviting people to them, against self-hosted GitLab or gitlab.com, with per-instance credential profiles.",
+  "version": "0.1.0",
+  "author": {
+    "name": "Ideamans Inc.",
+    "email": "support@ideamans.com"
+  },
+  "homepage": "https://github.com/ideamans/gitlab-op",
+  "repository": "https://github.com/ideamans/gitlab-op",
+  "license": "MIT",
+  "keywords": ["gitlab", "group", "project", "invite", "provisioning", "cli"]
+}
