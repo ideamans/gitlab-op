@@ -15,7 +15,7 @@ import (
 // PluginVersion is the version the distributed Claude Code plugin claims.
 // The release workflow refuses a tag that disagrees with it, and
 // TestPluginSkills asserts plugin.json carries the same value.
-const PluginVersion = "1.1.0"
+const PluginVersion = "1.1.1"
 
 var version = PluginVersion
 
